@@ -13,7 +13,10 @@ st.caption("Streamlit + OpenAI (DALL·E) — deployable on Streamlit Cloud")
 # Sidebar controls
 with st.sidebar:
     st.header("⚙️ Settings")
-    size = st.selectbox("Image size", ["256x256", "512x512", "1024x1024"], index=1)
+    size = st.sidebar.selectbox(
+    "Image size",
+    ["1024x1024", "1024x1536", "1536x1024", "auto"],
+    index=0)
     n_images = st.slider("Images to generate", 1, 4, 1)
 
 prompt = st.text_area("Prompt", "A fantasy castle on a mountain at sunset, watercolor, cinematic lighting", height=100)
