@@ -40,7 +40,7 @@ def get_client() -> OpenAI:
             "(⋮ → Settings → Secrets) or as an environment variable."
         )
     return OpenAI(api_key=api_key, organization=org) if org else OpenAI(api_key=api_key)
-
+st.write("Key loaded:", bool(st.secrets.get("OPENAI_API_KEY")))
 def decode_image_to_pil(b64: str) -> Image.Image:
     img_bytes = base64.b64decode(b64)
     return Image.open(BytesIO(img_bytes)).convert("RGBA"), img_bytes
